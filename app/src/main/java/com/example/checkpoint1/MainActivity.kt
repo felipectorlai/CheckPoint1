@@ -1,46 +1,51 @@
-package com.example.checkpoint1
-
+import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.checkpoint1.ui.theme.Checkpoint1Theme
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.checkpoint1.R
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var radioGroup: RadioGroup
+    private lateinit var alturaEditText: EditText
+    private lateinit var calcularButton: Button
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            Checkpoint1Theme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
-            }
+        setContentView(R.layout.activity_main)
+
+        radioGroup = findViewById(R.id.radioGroup)
+        alturaEditText = findViewById(R.id.alturaEditText)
+        calcularButton = findViewById(R.id.calcularButton)
+
+        calcularButton.setOnClickListener {
+            calcularPesoIdeal()
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+    private fun calcularPesoIdeal() {
+        val altura = alturaEditText.text.toString().toDoubleOrNull()
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Checkpoint1Theme {
-        Greeting("Android")
+        if (altura == null || altura <= 0) {
+            Toast.makeText(this, "Altura inválida", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val pesoIdeal = when (radioGroup.checkedRadioButtonId) {
+            R.id.masculinoRadioButton -> (72.7 * altura) - 58
+            R.id.femininoRadioButton -> (62.1 * altura) - 44.7
+            else -> {
+                Toast.makeText(this, "Selecione o sexo", Toast.LENGTH_SHORT).show()
+                return
+            }
+        }
+
+        Toast.makeText(this, "Peso ideal: $pesoIdeal kg", Toast.LENGTH_SHORT).show()
     }
 }

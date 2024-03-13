@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="masculinoRadioButton" type="id" />
+    <item name="femininoRadioButton" type="id" />
+    <item name="radioGroup" type="id" />
+    <item name="alturaEditText" type="id" />
+    <item name="calcularButton" type="id" />
+</resources>

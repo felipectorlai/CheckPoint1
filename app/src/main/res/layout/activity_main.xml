@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="410dp"
+    android:layout_height="730dp"
+    android:orientation="vertical"
+    tools:ignore="NamespaceTypo" >
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:text="Peso Ideal"
+        android:translationX="10dp"
+        android:translationY="5dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sexo:"
+        android:translationX="10dp"
+        android:translationY="35dp" />
+
+    <RadioButton
+        android:id="@+id/radioButton4"
+        android:layout_width="111dp"
+        android:layout_height="wrap_content"
+        android:text="Masculino"
+        android:translationX="15dp"
+        android:translationY="40dp" />
+
+    <RadioButton
+        android:id="@+id/radioButton5"
+        android:layout_width="111dp"
+        android:layout_height="wrap_content"
+        android:text="Feminino"
+        android:translationX="15dp"
+        android:translationY="50dp" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="243dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Altura:"
+        android:translationX="70dp"
+        android:translationY="60dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="114dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#8695EA"
+        android:text="PESO IDEAL"
+        android:translationX="130dp"
+        android:translationY="70dp" />
+
+</LinearLayout>
